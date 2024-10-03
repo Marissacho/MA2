@@ -116,11 +116,17 @@ return false;
 if(root->data==v){
 return true;
 }
+if(v < root->data){
+return contains(root->left, v);
+}
+  if(v > root->data){
+    return contains(root->right, v);
+  }
 }
 
 // public insert: refer to textbook, Figure 4.17, Line 12 - 15
 template<typename Comparable>
-void BST<Comparable>::insert(Node*root, int v) {
+Node* BST<Comparable>::insert(Node*root, int v) {
 if(root==nullptr){
 return new Node(v);
 }
@@ -133,7 +139,7 @@ return root;
 }
 // public remove: refer to textbook, Figure 4.17, Line 20 - 23
 template<typename Comparable>
-void BST<Comparable>::remove(Node* root, int v) {
+Node* BST<Comparable>::remove(Node* root, int v) {
 if(root== nullptr){
 return root;
 }
@@ -194,12 +200,14 @@ r.push(root);
 while(!r.empty()){
 Node* node= r.front();
 r.pop();
-cout<<node->data<<endl;
+cout<<node->data<<"";
 if(node->left !=nullptr){
 r.push(node->left);
 }
 if(node->right !=nullptr){
 r.push(node->right);
+}
+}
 }
 
 // public printMaxPath
