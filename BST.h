@@ -161,7 +161,7 @@ int BST<Comparable>::treeSize(Node*root) const {
 if(root==nullptr){
 return 0;
 }
-return treeSize(root->left)+ treeSize(root->right);
+return 1+ treeSize(root->left)+ treeSize(root->right);
 }
 // public treeHeight
 template <typename Comparable>
@@ -169,7 +169,7 @@ int BST<Comparable>::treeHeight(Node* root) const {
 if(root==nullptr){
 return -1;
 }
-return max(treeHeight(root->left), treeHeight(root->right));
+return 1+ max(treeHeight(root->left), treeHeight(root->right));
 }
 
 // public printInOrder: refer to textbook, Figure 4.60
@@ -189,17 +189,17 @@ void BST<Comparable>::printLevels() const {
 if(root == nullptr){
 return;
 }
-queue<Node*> q;
-q.push(root);
-while(!q.empty()){
-Node* node=q.front();
-q.pop();
+queue<Node*> r;
+r.push(root);
+while(!r.empty()){
+Node* node= r.front();
+r.pop();
 cout<<node->data<<endl;
 if(node->left !=nullptr){
-q.push(node->left);
+r.push(node->left);
 }
 if(node->right !=nullptr){
-q.push(node->rig
+r.push(node->right);
 }
 
 // public printMaxPath
