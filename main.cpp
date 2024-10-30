@@ -39,7 +39,7 @@ bool testDeleteByKey(map<string, User> aMap, string keyToDelete) {
 return userMap.erase(key)>0;
 }
 void printActiveUsers(map<string, User> aMap) {
-int activeThreshold = 800;
+int activeThreshold = 900;
 for(const auto&[userName, user]:aMap){
 if(user.tweets>activeThreshold){
 cout<<"Active User:"<<user.userName<<"with"<<user.tweets<<"tweets"<<endl;
