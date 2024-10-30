@@ -49,7 +49,7 @@ cout<<"Active User:"<<user.userName<<"with"<<user.tweets<<"tweets"<<endl;
 void printMostPopularCategory(map<string, User> aMap) {
 std::map<std::string, int> categoryCount;
 for(const auto&[userName,user]:aMap){
-categoryCount[user.mostViewedCategory]++;
+categoryCount[user.mostPopularCategory]++;
 }
 string mostPopularCategory;
 int maxCount=0;
